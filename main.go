@@ -12,7 +12,7 @@ import (
 
 func main() {
 	router := gin.Default()
-	docs.SwaggerInfo.BasePath = "/"
+	docs.SwaggerInfo.BasePath = "/api/v1"
 
 	r := router.Group("/")
 
