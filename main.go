@@ -12,9 +12,9 @@ import (
 
 func main() {
 	router := gin.Default()
-	docs.SwaggerInfo.BasePath = "/api/v1"
+	docs.SwaggerInfo.BasePath = "/"
 
-	r := router.Group("/api/v1")
+	r := router.Group("/")
 
 	//redirect might not work cause chrome caches the redirect
 	r.GET("/docs", func(c *gin.Context) {
