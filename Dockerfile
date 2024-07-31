@@ -32,7 +32,6 @@ WORKDIR /root/
 # Copy the Pre-built binary file from the previous stage
 COPY --from=builder /app/main .
 
-ENV DATABASE_URL=mongodb://root:dhHss570Lpwc3QrDdxzVlhBgIrjw5dkd9xzCv6lSJa2a4h4OKmDIGHJ0PLSXJYzR@owsg800:27017/?directConnection=true
 
 # Expose port 8080 to the outside world
 EXPOSE 8080
