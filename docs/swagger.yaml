@@ -1,4 +1,63 @@
+definitions:
+  models.Habit:
+    properties:
+      description:
+        type: string
+      name:
+        type: string
+    type: object
 info:
   contact: {}
-paths: {}
+paths:
+  /habits/addHabit:
+    post:
+      consumes:
+      - application/json
+      description: Add a habit with name and description
+      parameters:
+      - description: Habit name
+        in: query
+        name: name
+        required: true
+        type: string
+      - description: Habit description
+        in: query
+        name: description
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Succesfully added habit
+          schema:
+            type: string
+        "400":
+          description: Both 'name' and 'description' are required
+          schema:
+            type: string
+      summary: Add a habit
+      tags:
+      - habits
+  /habits/getHabits:
+    get:
+      consumes:
+      - application/json
+      description: Get all habits from the database
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: List of habits
+          schema:
+            items:
+              $ref: '#/definitions/models.Habit'
+            type: array
+        "500":
+          description: Internal server error
+          schema:
+            type: string
+      summary: Get all habits
+      tags:
+      - habits
 swagger: "2.0"

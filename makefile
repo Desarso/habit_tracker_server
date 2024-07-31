@@ -5,7 +5,7 @@ serve: compile
 	./main
 
 
-compile: get_packages
+compile: get
 
 	@go build  -o main
 
